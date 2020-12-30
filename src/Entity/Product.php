@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Uid\UuidV4;
+use Symfony\Bridge\Doctrine\IdGenerator\UuidV4Generator;
 
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
@@ -12,11 +12,10 @@ use Symfony\Component\Uid\UuidV4;
 class Product
 {
     /**
-     *
      * @ORM\Id
      * @ORM\Column(type="uuid", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class=UuidV4::class)
+     * @ORM\CustomIdGenerator(class=UuidV4Generator::class)
      */
     private $uuid;
 
